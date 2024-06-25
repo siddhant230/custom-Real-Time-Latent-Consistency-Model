@@ -33,12 +33,15 @@ SAFETY_CHECKER = os.environ.get("SAFETY_CHECKER", None) == "True"
 TORCH_COMPILE = os.environ.get("TORCH_COMPILE", None) == "True"
 USE_TAESD = os.environ.get("USE_TAESD", "False") == "True"
 default_host = os.getenv("HOST", "0.0.0.0")
-default_port = int(os.getenv("PORT", "7860"))
+default_port = int(os.getenv("PORT", "80"))
 
 parser = argparse.ArgumentParser(description="Run the app")
-parser.add_argument("--host", type=str, default=default_host, help="Host address")
-parser.add_argument("--port", type=int, default=default_port, help="Port number")
-parser.add_argument("--reload", action="store_true", help="Reload code on change")
+parser.add_argument("--host", type=str,
+                    default=default_host, help="Host address")
+parser.add_argument("--port", type=int,
+                    default=default_port, help="Port number")
+parser.add_argument("--reload", action="store_true",
+                    help="Reload code on change")
 parser.add_argument(
     "--max-queue-size",
     dest="max_queue_size",

@@ -19,7 +19,7 @@ See a collecting with live demos [here](https://huggingface.co/collections/laten
 
 ## SETUP on COLAB
 ```
-!git clone https://github.com/radames/Real-Time-Latent-Consistency-Model.git
+!git clone https://github.com/siddhant230/custom-Real-Time-Latent-Consistency-Model.git
 %cd /content/Real-Time-Latent-Consistency-Model
 !pip install -q -r server/requirements.txt
 
@@ -31,8 +31,8 @@ See a collecting with live demos [here](https://huggingface.co/collections/laten
 # this command would give public IP
 !curl ipv4.icanhazip.com 
 
-when you run the below command "main.py", a intermediate tunnel window will appear asking for password.
-The public IP from previous step has to be entered in password section, and press enter.
+# when you run the below command "main.py", a intermediate tunnel window will appear asking for password.
+# The public IP from previous step has to be entered in password section, and press enter.
 !python server/main.py --safety-checker --sfast --pipeline controlnet & npx localtunnel --port 80
 
 ```
