@@ -217,6 +217,7 @@ class Pipeline:
                 text_encoder=self.pipe.text_encoder,
                 truncate_long_prompts=False,
             )
+        self.negative_prompt = "Nudity, NSFW, partial nudity, poorly Rendered face, poorly drawn face, poor facial details, poorly drawn hands, poorly rendered hands, low resolution, bad composition, mutated body parts, blurry image, disfigured, oversaturated, bad anatomy, deformed body features"
 
     def predict(self, params: "Pipeline.InputParams") -> Image.Image:
         generator = torch.manual_seed(params.seed)
@@ -239,6 +240,7 @@ class Pipeline:
             control_image=control_image,
             prompt_embeds=prompt_embeds,
             prompt=prompt,
+            negative_prompt=self.negative_prompt,
             generator=generator,
             strength=strength,
             num_inference_steps=steps,

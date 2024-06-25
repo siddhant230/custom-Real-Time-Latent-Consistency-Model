@@ -17,6 +17,26 @@ You need a webcam to run this demo. 🤗
 
 See a collecting with live demos [here](https://huggingface.co/collections/latent-consistency/latent-consistency-model-demos-654e90c52adb0688a0acbe6f)
 
+## SETUP on COLAB
+```
+!git clone https://github.com/radames/Real-Time-Latent-Consistency-Model.git
+%cd /content/Real-Time-Latent-Consistency-Model
+!pip install -q -r server/requirements.txt
+
+!npm install -g n
+!n latest
+!cd frontend && npm install && npm run build && cd ..
+!npm install -g localtunnel
+
+# this command would give public IP
+!curl ipv4.icanhazip.com 
+
+when you run the below command "main.py", a intermediate tunnel window will appear asking for password.
+The public IP from previous step has to be entered in password section, and press enter.
+!python server/main.py --safety-checker --sfast --pipeline controlnet & npx localtunnel --port 80
+
+```
+
 ## Running Locally
 
 You need CUDA and Python 3.10, Node > 19, Mac with an M1/M2/M3 chip or Intel Arc GPU
